@@ -10,7 +10,17 @@
  *
  */
 function filterEvens(numbers) {
-	// your code goes here!
+	let evenArray = [];
+	let evenArrayCounter = 0;
+	for (let i = 0; i <numbers.length; i++)
+	{
+		if (numbers[i]% 2 === 0)
+		{
+			evenArray[evenArrayCounter] = numbers[i];
+			evenArrayCounter++;
+		}
+	}
+	return evenArray;
 }
 
 /**
@@ -25,7 +35,17 @@ function filterEvens(numbers) {
  *
  */
 function filterOdds(numbers) {
-	// your code goes here!
+	let oddArray = [];
+	let oddArrayCounter = 0;
+	for (let i = 0; i <numbers.length; i++)
+	{
+		if (numbers[i]% 2 != 0)
+		{
+			oddArray[oddArrayCounter] = numbers[i];
+			oddArrayCounter++;
+		}
+	}
+	return oddArray;
 }
 
 /**
@@ -39,7 +59,13 @@ function filterOdds(numbers) {
  *
  */
 function sumOdds(numbers) {
-	// your code goes here!
+	let oddSum = filterOdds(numbers);
+	let summation = 0;
+	for (let i = 0; i <oddSum.length; i++)
+	{
+		summation = summation + oddSum[i];
+	}
+	return summation;
 }
 
 /**
@@ -59,7 +85,34 @@ function sumOdds(numbers) {
  * 
  */
 function makePairs(names) {
-	// your code goes here!
+	if (names.length %2 != 0)
+	{ let numOfPairs = ((names.length - 1) / 2 )+ 1;
+		let pairedArr = [];
+		let counter = 0;
+		for (let i = 0; i < names.length; i = i +2) {
+			
+				if (names[i+1] != undefined) {
+				pairedArr[counter] = [names[i], names [i+1]];
+				} else{
+					pairedArr[counter] = [names[i]];
+				}
+				
+				counter = counter + 1;
+			}
+			return pairedArr;
+		
+
+	} else {
+		let numOfPairs = names.length /2 ;
+		let pairedArr = [];
+		let counter = 0;
+		for (let i = 0; i < names.length; i = i +2) {
+				pairedArr[counter] = [names[i], names [i+1]];
+				counter = counter + 1;
+			}
+			
+			return pairedArr;
+	}
 }
 
 /**************************************************
@@ -69,14 +122,14 @@ let numbers = [153,67,9,34,7,67,342,7,34,8656,2,124,5,43];
 let instructors = ["Hamza", "Mshary", "Aziz", "Hussein", "Fawaz"];
 
 // uncomment the following lines to run and test your code.
-// // filterEvens
-// evens = filterEvens(numbers);
-// console.log(evens);
+//filterEvens
+evens = filterEvens(numbers);
+console.log(evens);
 
-// // sumOdds
-// sum = sumOdds(numbers);
-// console.log(sum);
+ // sumOdds
+ sum = sumOdds(numbers);
+ console.log(sum);
 
-// // makePairs
-// let pairs = makePairs(instructors);
-// console.log(pairs);
+ // makePairs
+ let pairs = makePairs(instructors);
+ console.log(pairs);
